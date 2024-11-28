@@ -7,8 +7,5 @@ catboost
 xgboost
 dill
 Flask
-<<<<<<< HEAD
 -e .
-=======
--e .
->>>>>>> 9c74b7f00b2993677355bd0c677d9b3ed4da07a5
+
