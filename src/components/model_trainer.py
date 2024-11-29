@@ -1,8 +1,8 @@
 # train the model
 import os,sys
+
 from dataclasses import dataclass
 
-from catboost import CatBoostRegressor
 from sklearn.ensemble import (
     AdaBoostRegressor,
     GradientBoostingRegressor,
@@ -35,10 +35,10 @@ class ModelTrainer:
         try:
             logging.info('Split training and test input data')
             X_train,y_train,X_test,y_test=(
-                train_array[:,:-3],
-                train_array[:,-3],
-                test_array[:,:-3],
-                test_array[:,-3]
+                train_array[:,:-1],
+                train_array[:,-1],
+                test_array[:,:-1],
+                test_array[:,-1]
             )
             models={
                 "RandomForestRegressor":RandomForestRegressor(),
@@ -47,7 +47,6 @@ class ModelTrainer:
                 "LinearRegression":LinearRegression(),
                 "KNeighborsRegressor":KNeighborsRegressor(),
                 "XGBRegressor":XGBRegressor(),
-                "CatBoostRegressor":CatBoostRegressor(verbose=False),
                 "AdaBoostRegressor":AdaBoostRegressor()
             }
          
