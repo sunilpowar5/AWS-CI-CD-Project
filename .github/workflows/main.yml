@@ -31,12 +31,12 @@ on:
     branches: [ "main" ]
 
 env:
-  AWS_REGION: ${{ secrets.AWS_REGION }} # Value pulled from your GitHub secrets
-  ECR_REPOSITORY: ${{ secrets.ECR_REPOSITORY_NAME }} # Repository name from secrets
-  ECS_SERVICE: my-ecs-service           # Replace with your ECS service name
-  ECS_CLUSTER: my-ecs-cluster           # Replace with your ECS cluster name
+  AWS_REGION: ${{ secrets.AWS_REGION }}
+  ECR_REPOSITORY: ${{ secrets.ECR_REPOSITORY_NAME }}
+  ECS_SERVICE: my-ecs-service
+  ECS_CLUSTER: my-ecs-cluster
   ECS_TASK_DEFINITION: .aws/task-definition.json
-  CONTAINER_NAME: my-container          # Replace with your container name
+  CONTAINER_NAME: my-container
 
 permissions:
   contents: read
@@ -90,5 +90,4 @@ jobs:
         service: ${{ env.ECS_SERVICE }}
         cluster: ${{ env.ECS_CLUSTER }}
         wait-for-service-stability: true
-
 
